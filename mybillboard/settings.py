@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'board',
     'social.apps.django_app.default',
+    'social_django',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -155,6 +156,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
 ]
+print(STATICFILES_DIRS)
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
