@@ -1,0 +1,30 @@
+
+
+ <fieldset class="post_div center-block">
+                    <legend><p class="pubdate">{{ post.post_pub_date|date:"d/m/Y" }}</p></legend>
+                    <p class="posttitle">{{ post.post_title }}</p>
+                    <p class="postmsg">{{ post.post_desc }}</p>
+                    <p class="postauthor">{{ post.post_author }}</p>
+                    <button class="delete_post btn" id="{{ post.id }}">Delete Post</button>
+
+                    <button class="showcomments btn" id="showcommnt">Show Comments</button>
+
+                    <div class="comments" id="commentbox_{{ post.id }}">
+
+                        {% for comment in post.comment_set.all %}
+                            <p class="commenttext">
+                                <strong>{{ comment.comment_text }}</strong>, {{ comment.comment_author }}</p>
+                        {% endfor %}
+                    </div>
+                <button class="addcomment btn" id="add_{{ post.id }}">Add Comment</button>
+                    <div class="center-block newcommentbox" style="display: none;">
+                        <br>
+                        <textarea class="form-control" rows="2" id="newcoomenttext_{{ post.id }}" placeholder="Your comment here.."></textarea>
+                        <input type="text" class="form-control" id="newcommentauthor_{{ post.id }}" placeholder="Your name">
+
+                             <i class="fa fa-times clostcomment" id="{{ post.id }}" aria-hidden="true"></i>
+                            <i class="fa fa-check confirmcommentbtn" id="{{ post.id }}" aria-hidden="true"></i>
+                        </div>
+
+
+                </fieldset>

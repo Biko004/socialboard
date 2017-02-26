@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Biko's Billboard</title>
+</head>
+<body>
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-12 col-md-7">
+                <div class="panel panel-deafult">
+                    <div class="panel-body">
+                        <h3>Create New Account</h3><br>
+{#                        {% if form.errors %}#}
+{#                            {% for field, errors in form.errors.items %}#}
+{#                                {% for error in errors %}#}
+{#                            <p><strong>{{ error }}</strong></p>#}
+{#                                    {% endfor %}#}
+{#                            {% endfor %}#}
+{#                        {% endif %}#}
+                        <form class="form-horizontal" role="form" action="" method="post">
+                            {% csrf_token %}
+                            {% include 'board/form-template.html' %}
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/082397c0ed.js' %}"></script>
+<script src="{% static 'js/javascript.js' %}"></script>
+</html>

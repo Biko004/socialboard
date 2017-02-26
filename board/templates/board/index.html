@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Biko's Billboard</title>
+</head>
+<body>
+<div class="container">
+    <p id="hellouser">Hello {{ request.user }} !</p>
+    <a class="btn" id="logoutbtn" href="/logout">Logout</a>
+    <p id="maintitle">Billboard</p>
+    <div id="row">
+        {% if posts %}
+            {% for post in posts %}
+                <fieldset class="post_div center-block">
+                    <legend><p class="pubdate">{{ post.post_pub_date|date:"d/m/Y" }}</p></legend>
+                    <p class="posttitle">{{ post.post_title }}</p>
+                    <p class="postmsg">{{ post.post_desc }}</p>
+                    <p class="postauthor">{{ post.post_author }}</p>
+                    <button class="delete_post btn" id="{{ post.id }}">Delete Post</button>
+
+                    <button class="showcomments btn" id="showcommnt">Show Comments</button>
+
+                    <div class="comments" id="commentbox_{{ post.id }}">
+
+                        {% for comment in post.comment_set.all %}
+                            <p class="commenttext">
+                                <strong>{{ comment.comment_text }}</strong>, {{ comment.comment_author }}</p>
+                        {% endfor %}
+                    </div>
+                    <button class="addcomment btn" id="add_{{ post.id }}">Add Comment</button>
+                    <div class="center-block newcommentbox">
+                        <br>
+                        <textarea class="form-control" rows="2" id="newcoomenttext_{{ post.id }}"
+                                  placeholder="Your comment here.."></textarea>
+                        <input type="text" class="form-control" id="newcommentauthor_{{ post.id }}"
+                               placeholder="Your name">
+
+                        <i class="fa fa-times clostcomment" id="{{ post.id }}" aria-hidden="true"></i>
+                        <i class="fa fa-check confirmcommentbtn" id="{{ post.id }}" aria-hidden="true"></i>
+                    </div>
+
+
+                </fieldset>
+            {% endfor %}
+        {% else %}
+            <div class="center-block" id="nomsgbox">
+                <p id="nomsg">No messages...<br>Click the '+' button to add a new message</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="newpost">
+
+
+        <fieldset class="center-block" id="newpostdiv">
+            <legend><p class="pubdate" id="newpostdate"></p></legend>
+            <input type="text" class="form-control" id="newtitle" placeholder="Title..">
+            <textarea class="form-control" rows="5" id="newtext" placeholder="Your message here.."></textarea>
+            <input type="text" class="form-control" id="newauthor" value='{{ request.user }}' placeholder="Your name">
+            <br><br>
+        </fieldset>
+
+        <div class="center-block bordernewmsg" id="confirmbox">
+            <i class="fa fa-times" id='closebtn' aria-hidden="true"></i>
+            <i class="fa fa-check" id='confirmbtn' aria-hidden="true"></i>
+        </div>
+
+        <div class="center-block bordernewmsg" id="newpostbtn">
+            <i class="fa fa-plus pulse" id='plusbtn' aria-hidden="true"></i>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/082397c0ed.js' %}"></script>
+<script src="{% static 'js/javascript.js' %}"></script>
+</html>

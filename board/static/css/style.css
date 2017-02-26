@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Pinyon+Script|Poiret+One');
+
+#maintitle{
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: black;
+    text-align: center;
+    margin-top: 4%;
+}
+.pubdate{
+    font-family: 'Poiret One', cursive;
+    font-size:16px;
+    color: black;
+    padding-left: 4%;
+}
+
+.posttitle{
+    font-family: 'Anton', sans-serif;
+    font-size:30px;
+    color: #00b7ef;
+}
+
+.postmsg{
+    font-family: 'Arial';
+    font-size:16px;
+    color: #c1bfc0;
+}
+.postauthor{
+    font-family: 'Pinyon Script', cursive;
+    font-size:24px;
+    color: black;
+    float: right;
+}
+
+.post_div{
+    padding: 16px;
+    height: auto;
+    max-width: 800px;
+    border: 3px solid #00b7ef;
+    margin-bottom: 4%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.bordernewmsg{
+    border: 1px dashed black;
+    padding: 16px;
+    max-width: 800px;
+    margin-bottom: 1%;
+    text-align: center;
+    min-height: 80px;
+}
+legend {
+    border: 0;
+    border-bottom: 0px;
+    width: 16%;
+    padding-left: 1%;
+}
+#plusbtn{
+    background-color: #66CDAA;
+    font-size: 16px;
+    color: white;
+    border-radius: 3px;
+    padding: 2% 7%;
+}
+
+#plusbtn:hover{
+    background-color: #53ac8e;
+    font-size: 16px;
+    color: white;
+    border-radius: 3px;
+    padding: 2% 7%;
+    cursor: pointer;
+}
+
+
+#confirmbtn{
+    background-color: #66CDAA;
+    font-size: 16px;
+    color: white;
+    border-radius: 3px;
+    padding: 2% 7%;
+}
+
+#confirmbtn:hover{
+    background-color: #53ac8e;
+    font-size: 16px;
+    color: white;
+    border-radius: 3px;
+    padding: 2% 7%;
+    cursor: pointer;
+}
+
+#closebtn{
+    background-color: red;
+    font-size: 16px;
+    color: white;
+    border-radius: 3px;
+    padding: 2% 7%;
+}
+
+#closebtn:hover{
+    background-color: #d10000;
+    font-size: 16px;
+    color: white;
+    border-radius: 3px;
+    padding: 2% 7%;
+    cursor: pointer;
+}
+body{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.form-control{
+    margin-bottom: 1%;
+}
+#newtitle{
+    width: 35%;
+}
+#newauthor{
+    width: 35%;
+    float: right;
+}
+#newpostdiv{
+    padding: 16px;
+    height: 275px;
+    max-width: 800px;
+    border: 3px dashed#00b7ef;
+    margin-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+#confirmbox{
+    height: 85px;
+}
+
+.commenttext{
+    font-family: 'Arial';
+    font-size:16px;
+    color: #c1bfc0;
+}
+.commentauthor{
+    font-family: 'Pinyon Script', cursive;
+    font-size:14px;
+    color: black;
+    float: right;
+}
+.confirmcommentbtn{
+    background-color: #66CDAA;
+    font-size: 16px;
+    color: white;
+    border-radius: 3px;
+    padding: 2% 7%;
+    cursor: pointer;
+}
+.confirmcommentbox{
+    text-align: center;
+    cursor: pointer;
+}
+.clostcomment{
+    background-color: red;
+    font-size: 16px;
+    color: white;
+    border-radius: 3px;
+    padding: 2% 7%;
+    cursor: pointer;
+}
+.newcommentbox{
+        text-align: center;
+}
+.btn {
+    background: #ffffff;
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    -webkit-border-radius: 28%;
+    -moz-border-radius: 28%;
+    border-radius: 20px;
+    font-family: Arial;
+    color: #126ba3;
+    font-size: 12px;
+    padding: 8px 16px 8px 16px;
+    border: solid #126ba3 2px;
+    text-decoration: none;
+}
+
+.btn:hover {
+  background: #d9d9d9;
+  background-image: -webkit-linear-gradient(top, #d9d9d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #d9d9d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #d9d9d9, #ffffff);
+  background-image: -o-linear-gradient(top, #d9d9d9, #ffffff);
+  background-image: linear-gradient(to bottom, #d9d9d9, #ffffff);
+  text-decoration: none;
+}
+
+#nomsg{
+    font-family: 'Arial';
+    font-size: 24px;
+    color: black;
+    text-align: center;
+}
+#nomsgbox{
+    padding: 16px;
+    height: auto;
+    max-width: 800px;
+    margin-top: 4%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+@keyframes pulse_animation {
+	0% { transform: scale(1); }
+	30% { transform: scale(1); }
+	40% { transform: scale(1.08); }
+	50% { transform: scale(1); }
+	60% { transform: scale(1); }
+	70% { transform: scale(1.05); }
+	80% { transform: scale(1); }
+	100% { transform: scale(1); }
+}
+
+.pulse {
+	animation-name: pulse_animation;
+	animation-duration: 5000ms;
+	transform-origin:70% 70%;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+#logoutbtn{
+    margin-top: 4%;
+    float: right;
+    display: inline-block;
+}
+
+#hellouser{
+    margin-top: 4%;
+    float: left;
+    display: inline-block;
+}
