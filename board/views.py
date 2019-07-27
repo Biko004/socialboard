@@ -64,7 +64,7 @@ class UserFormView(View):
             user.set_password(password2)
             user.save()
 
-            #returns USer objects if credentials are correct
+            #returns User objects if credentials are correct
 
             user = authenticate(username=username, password=password2)
             if user is not None:

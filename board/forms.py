@@ -3,8 +3,13 @@ from django import forms
 
 
 class UserForm(forms.ModelForm):
-    password1 = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(max_length=100,
+                               widget= forms.TextInput
+                                (attrs={'placeholder':'Username'}))
+    password1 = forms.CharField(widget=forms.PasswordInput
+                                (attrs={'placeholder':'Password'}))
+    password2 = forms.CharField(widget=forms.PasswordInput
+                                (attrs={'placeholder':'Password Confirmation'}))
     error_messages = {
         'password_mismatch': "The two password fields didn't match.",
         'password_tooshort': "Please enter at least 8 digits for password"

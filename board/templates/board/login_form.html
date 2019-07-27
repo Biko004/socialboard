@@ -3,43 +3,33 @@
 <head>
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
     <meta charset="UTF-8">
     <title>Biko's Billboard</title>
 </head>
 <body>
 {% block body %}
-    <div class="container-fluid">
-        <div class="row">
+<div class="login-page">
 
-            <div class="col-sm-12 col-md-7">
-                <div class="panel panel-deafult">
-                    <div class="panel-body">
-                        <h3>Login to your Account</h3>
-                        {% if form.errors %}
-                            <p><strong>The Username / Password you entered are wrong.</strong></p>
-                            <p><strong>Please try again or <a href="/board/register">Register now</a>.</strong></p>
-                            <br>
-                        {% endif %}
-                        <form class="form-horizontal" role="form" action="{% url 'login' %}" method="post">
-                            {% csrf_token %}
-                            {% include 'board/form-template.html' %}
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                    <a class="btn" href="/board/register">Register</a>
-                                </div>
-                            </div>
-                        </form>
-                        <br>
-                        <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
-                        <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
-                    <p id="hellouser">Hello {{ request.user }} !</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="form">
+      <!--<p id="hellouser">Hello {{ request.user }} !</p>-->
+
+      <h2>Billboard</h2>
+      {% if form.errors %}
+          <p><strong>The Username / Password you entered are wrong.</strong></p>
+          <p><strong>Please try again or <a href="/board/register">Register now</a>.</strong></p>
+          <br>
+      {% endif %}
+        <form class="login-form" role="form" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {% include 'board/form-template.html' %}
+            <button type="submit" class="btn btn-success">Submit</button>
+            <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+            <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
+            <p class="message">Not registered? <a href="/board/register">Create an account</a></p>
+        </form>
+  </div>
+</div>
 {% endblock %}
 </body>
 <script src="{% static 'js/jquery.min.js' %}"></script>
