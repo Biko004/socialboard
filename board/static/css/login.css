@@ -95,3 +95,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.social-logos{
+    display: flex;
+    justify-content: center;
+    padding-top: 18px;
+}
+
+.social-logos img{
+    width: 50px;
+}

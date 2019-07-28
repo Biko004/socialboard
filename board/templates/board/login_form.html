@@ -24,8 +24,10 @@
             {% csrf_token %}
             {% include 'board/form-template.html' %}
             <button type="submit" class="btn btn-success">Submit</button>
-            <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
-            <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
+            <div class="social-logos">
+                <a href="{% url 'social:begin' 'github' %}"><img src="{% static 'images/github.png' %}" title="GitHub" alt="GitHub"></a><br>
+                <a href="{% url 'social:begin' 'twitter' %}"><img src="{% static 'images/twitter.png' %}" title="Twitter" alt="Twitter"></a><br>
+            </div>
             <p class="message">Not registered? <a href="/board/register">Create an account</a></p>
         </form>
   </div>
