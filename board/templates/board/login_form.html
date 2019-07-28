@@ -24,10 +24,11 @@
             {% csrf_token %}
             {% include 'board/form-template.html' %}
             <button type="submit" class="btn btn-success">Submit</button>
-            <div class="social-logos">
+        <div class="social-logos">
+                <a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'images/facebook.png' %}" title="Facebook" alt="Facebook"></a><br>
                 <a href="{% url 'social:begin' 'github' %}"><img src="{% static 'images/github.png' %}" title="GitHub" alt="GitHub"></a><br>
                 <a href="{% url 'social:begin' 'twitter' %}"><img src="{% static 'images/twitter.png' %}" title="Twitter" alt="Twitter"></a><br>
-            </div>
+        </div>
             <p class="message">Not registered? <a href="/board/register">Create an account</a></p>
         </form>
   </div>

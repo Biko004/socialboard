@@ -106,6 +106,9 @@ legend {
     padding: 2% 7%;
     cursor: pointer;
 }
+.comments{
+    padding-top: 10px;
+}
 body{
     padding-left: 2%;
     padding-right: 2%;
@@ -239,3 +242,9 @@ body{
     display: block;
 }
 
+.showcomments {
+    display: none;
+}
+.showfield{
+    display: inline-block;
+}

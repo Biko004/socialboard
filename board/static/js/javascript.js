@@ -1,8 +1,6 @@
 /**
  * Created by itc_user1 on 2/15/2017.
  */
-console.log("heyeyeyey")
-
 board = {};
 
 
@@ -21,14 +19,13 @@ board.updateall = function(){
 
 
 board.delete_post = function(){
-    console.log(this.id);
+
     $(this).closest("fieldset").slideUp();
     $.ajax("/board/"+this.id,{
         type: "POST",
         data:{"post_id":this.id},
         success: function(data){
             console.log("post has been deleted")
-
         }
     });
 };
@@ -72,16 +69,14 @@ board.createnewpost = function(){
 
 
 board.showcomments = function(){
-    console.log("comment work");
     $(this).html("Hide Comments");
-    $(this).next("div").slideDown();
+    $(this).next().next().slideDown();
     $(this).unbind().bind("click",board.hidecomments)
 };
 
 board.hidecomments = function(){
-    console.log("comment work hide");
     $(this).html("Show Comments");
-    $(this).next("div").slideUp();
+    $(this).next().next().slideUp();
     $(this).unbind().bind("click",board.showcomments)
 };
 
@@ -89,15 +84,12 @@ board.hidecomments = function(){
 
 board.addcomment = function(){
     $(this).hide();
-    $(this).closest("div").slideDown();
-    var thisdiv = $(this).next("div").slideDown();
-    console.log(thisdiv)
+    $(this).next("div").next("div").slideDown();
 };
 
 board.sendnewcomment = function(){
     $(this).closest("div").slideUp();
     var addbtnid =   $(this).attr('id');
-    console.log(addbtnid);
     $("#add_"+addbtnid).show();
 
     $.ajax("/board/newcomment",{
@@ -116,7 +108,6 @@ board.sendnewcomment = function(){
 board.closenewcomment = function(){
     $(this).closest("div").slideUp();
     var addbtnid =   $(this).attr('id');
-    console.log(addbtnid);
     $("#add_"+addbtnid).show();
 };
 

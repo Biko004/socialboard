@@ -70,7 +70,9 @@ class UserFormView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return render(request, 'board/index.html')
+                    posts = Post.objects.all()
+                    five = posts.order_by('-post_pub_date')[:5]
+                    return render(request, 'board/index.html', {'posts':five})
 
         return render(request, self.template_name, {'form': form})
 

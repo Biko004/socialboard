@@ -26,8 +26,8 @@
                     <p class="postauthor">{{ post.post_author }}</p>
                     <button class="delete_post btn" id="{{ post.id }}">Delete Post</button>
 
-                    <button class="showcomments btn" id="showcommnt">Show Comments</button>
-
+                    <button class="showcomments btn {% if post.comment_set.all %} showfield {% endif %}" id="showcommnt">Show Comments</button>
+                    <button class="addcomment btn" id="add_{{ post.id }}">Add Comment</button>
                     <div class="comments" id="commentbox_{{ post.id }}">
 
                         {% for comment in post.comment_set.all %}
@@ -35,7 +35,7 @@
                                 <strong>{{ comment.comment_text }}</strong>, {{ comment.comment_author }}</p>
                         {% endfor %}
                     </div>
-                    <button class="addcomment btn" id="add_{{ post.id }}">Add Comment</button>
+
                     <div class="center-block newcommentbox">
                         <br>
                         <textarea class="form-control" rows="2" id="newcoomenttext_{{ post.id }}"
