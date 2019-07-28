@@ -1,4 +1,4 @@
 
 
-<p class="commenttext">
-    <strong>{{ comment.comment_text }}</strong>, {{ comment.comment_author }}</p>
+<p class="commenttext_{{ comment.id }}">
+        <p id="commenttext_{{ comment.id }}"><strong>{{ comment.comment_text }}</strong>, {{ comment.comment_author }} <a class="delete_comment" id="{{ comment.id }}"><i class="fa fa-trash" aria-hidden="true"></i></a></p>

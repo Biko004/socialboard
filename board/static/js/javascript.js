@@ -5,12 +5,11 @@ board = {};
 
 
 board.updateall = function(){
-
         $(".comments").hide();
         $(".newcommentbox").hide();
         $(".delete_post").bind("click",board.delete_post);
         $(".showcomments").bind("click",board.showcomments);
-
+        $(".delete_comment").bind("click",board.delete_comment);
         $("#closebtn").bind("click",board.cancelnewmsg);
         $(".addcomment").bind("click",board.addcomment);
         $(".confirmcommentbtn").bind("click",board.sendnewcomment);
@@ -19,7 +18,6 @@ board.updateall = function(){
 
 
 board.delete_post = function(){
-
     $(this).closest("fieldset").slideUp();
     $.ajax("/board/"+this.id,{
         type: "POST",
@@ -30,12 +28,22 @@ board.delete_post = function(){
     });
 };
 
+board.delete_comment = function(){
+    id = this.id;
+    console.log(id)
+    $.ajax("/board/comment/"+this.id,{
+        type: "POST",
+        data:{"comment_id":this.id},
+        success: function(data){
+        $("#commenttext_"+id).remove();
+        }
+    });
+};
+
 board.addnewpost = function(){
     $("#newpostbtn").slideUp();
     $("#newpostdiv").slideDown();
     $("#confirmbox").slideDown();
-
-
 };
 
 board.cancelnewmsg = function(){
@@ -85,6 +93,7 @@ board.hidecomments = function(){
 board.addcomment = function(){
     $(this).hide();
     $(this).next("div").next("div").slideDown();
+
 };
 
 board.sendnewcomment = function(){
@@ -100,7 +109,9 @@ board.sendnewcomment = function(){
     },
     success: function(data)
     {
+        $("#showcomment_"+addbtnid).show();
         $("#commentbox_"+addbtnid).html($("#commentbox_"+addbtnid).html() + data)
+        board.updateall();
     }});
 
 };
@@ -138,6 +149,7 @@ board.start = function(){
         $(".confirmcommentbtn").bind("click",board.sendnewcomment);
         $(".clostcomment").bind("click",board.closenewcomment);
         $("#newpostdate").text(board.formatDate(new Date));
+        $(".delete_comment").bind("click",board.delete_comment);
     })
 
 

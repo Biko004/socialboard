@@ -4,6 +4,7 @@
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Biko's Billboard</title>
 </head>
@@ -21,18 +22,18 @@
             {% for post in posts %}
                 <fieldset class="post_div center-block">
                     <legend><p class="pubdate">{{ post.post_pub_date|date:"d/m/Y" }}</p></legend>
+                    <a class="delete_post" id="{{ post.id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                     <p class="posttitle">{{ post.post_title }}</p>
                     <p class="postmsg">{{ post.post_desc }}</p>
                     <p class="postauthor">{{ post.post_author }}</p>
-                    <button class="delete_post btn" id="{{ post.id }}">Delete Post</button>
 
-                    <button class="showcomments btn {% if post.comment_set.all %} showfield {% endif %}" id="showcommnt">Show Comments</button>
+
+                    <button class="showcomments btn {% if post.comment_set.all %} showfield {% endif %}" id="showcomment_{{ post.id }}">Show Comments</button>
                     <button class="addcomment btn" id="add_{{ post.id }}">Add Comment</button>
                     <div class="comments" id="commentbox_{{ post.id }}">
 
                         {% for comment in post.comment_set.all %}
-                            <p class="commenttext">
-                                <strong>{{ comment.comment_text }}</strong>, {{ comment.comment_author }}</p>
+                            <p id="commenttext_{{ comment.id }}"><strong>{{ comment.comment_text }}</strong>, {{ comment.comment_author }} <a class="delete_comment" id="{{ comment.id }}"><i class="fa fa-trash" aria-hidden="true"></i></a></p>
                         {% endfor %}
                     </div>
 

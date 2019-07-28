@@ -248,3 +248,13 @@ body{
 .showfield{
     display: inline-block;
 }
+
+.delete_post{
+    font-size: 24px;
+    float: right;
+    cursor: pointer;
+}
+
+.delete_comment{
+    cursor: pointer;
+}

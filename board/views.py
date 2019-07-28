@@ -41,6 +41,13 @@ def newcomment(request):
     comment = Comment.objects.create(comment_text=commenttext, comment_author=commentauthor, post_id=post_id)
     return render(request, 'board/comment.html', {'comment':comment})
 
+@csrf_exempt
+def delete_comment(request):
+    comment_id = request.POST.get("comment_id")
+    comment = Comment.objects.get(id=comment_id)
+    comment.delete()
+    return HttpResponse("success")
+
 class UserFormView(View):
     form_class = UserForm
     template_name = 'board/registeration_form.html'
