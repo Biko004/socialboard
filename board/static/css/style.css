@@ -5,7 +5,7 @@
     font-size: 40px;
     color: black;
     text-align: center;
-    margin-top: 4%;
+    padding: 50px;
 }
 .pubdate{
     font-family: 'Poiret One', cursive;
@@ -230,14 +230,12 @@ body{
 }
 
 #logoutbtn{
-    margin-top: 4%;
     float: right;
-    display: inline-block;
+    display: block;
 }
 
 #hellouser{
-    margin-top: 4%;
     float: left;
-    display: inline-block;
+    display: block;
 }
 

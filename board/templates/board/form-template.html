@@ -5,5 +5,6 @@
 {% endfor %}
 
 {% for field in form %}
+<span>{{ field.label_tag }}</span><br>
     {{ field }}
 {% endfor %}

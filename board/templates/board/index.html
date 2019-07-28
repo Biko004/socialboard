@@ -8,10 +8,14 @@
     <title>Biko's Billboard</title>
 </head>
 <body>
-<div class="board">
+
+<div>
     <p id="hellouser">Hello {{ request.user }} !</p>
     <a class="btn" id="logoutbtn" href="/logout">Logout</a>
-    <p id="maintitle">Billboard</p>
+</div>
+
+<div class="board">
+    <H1 id="maintitle">Billboard</H1>
     <div id="row">
         {% if posts %}
             {% for post in posts %}
